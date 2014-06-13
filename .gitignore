@@ -1,0 +1,17 @@
+.DS_Store
+log/*.log
+tmp/*
+tmp/**/*
+config/initializers/*_local.rb
+config/database.yml
+config/exception_notification.yml
+db/*.sqlite3
+db/*.sqlite3-journal
+db/backups
+public/system
+mkmf.log
+.bundle
+config/gem_build.yml
+.rvmrc
+vendor/bundle
+.rbenv-gemsets
