@@ -81,6 +81,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     columnize (0.8.9)
+    daemon_controller (1.2.0)
     database_cleaner (1.2.0)
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
@@ -139,6 +140,10 @@ GEM
     net-ssh (2.9.1)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
+    passenger (4.0.44)
+      daemon_controller (>= 1.2.0)
+      rack
+      rake (>= 0.8.1)
     pg (0.17.1)
     polyglot (0.3.4)
     pry (0.9.12.6)
@@ -270,6 +275,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  passenger
   pg
   rails (~> 4.1.1)
   rails_12factor
