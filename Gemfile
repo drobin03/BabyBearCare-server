@@ -28,7 +28,7 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
   # gem 'capistrano-ext'
-  gem 'passenger'
+  # gem 'passenger'
   # gem 'rvm-capistrano'
   gem 'spring'
   gem 'spring-commands-rspec'
