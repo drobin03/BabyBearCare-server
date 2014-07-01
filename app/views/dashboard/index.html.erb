@@ -1,0 +1,10 @@
+<%- if logged_in? -%>
+<div class="row">
+  <div class="col-md-6">
+    <p class="button"><%= link_to "Start Fluoride Analysis", dashboard_path('check'), class: "btn btn-lg btn-default" %></p>
+  </div>
+  <div class="col-md-6">
+    <p class="button"><button class="btn btn-lg btn-default">History</button></p>
+  </div>
+</div>
+<%- end -%>

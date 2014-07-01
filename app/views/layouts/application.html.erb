@@ -1,9 +1,9 @@
 <%= render file: "layouts/shared/head" %>
-
-<%= render file: "layouts/shared/header" %>
 <%= render file: "layouts/shared/navigation" %>
-<%= render file: "layouts/shared/flashes" %>
-<div class="container">
+<%= render file: "layouts/shared/header" %>
+
+<div id="main-container" class="container">
+  <%= render file: "layouts/shared/flashes" %>
 	<%= yield %>
 </div>
 

@@ -3,3 +3,5 @@ body { @include img-retina("brushed.png", "brushed_@2X.png", 100px, 100px); back
 body { padding-top: $navbar-height; }
 
 .center { text-align: center; }
+
+#main-container { padding-top: 2em; padding-bottom: 2em; }
