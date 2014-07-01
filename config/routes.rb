@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :water_sources
+
   resources :infants
 
   # resources :user_sessions

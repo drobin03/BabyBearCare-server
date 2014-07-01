@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Watershed:</strong>
+  <%= @water_source.watershed %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @water_source.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @water_source.city %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @water_source.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @water_source.longitude %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @water_source.type %>
+</p>
+
+<p>
+  <strong>Standard geographic code:</strong>
+  <%= @water_source.standard_geographic_code %>
+</p>
+
+<%= link_to 'Edit', edit_water_source_path(@water_source) %> |
+<%= link_to 'Back', water_sources_path %>

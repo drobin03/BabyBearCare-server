@@ -1,0 +1,45 @@
+<%= form_for(@water_source) do |f| %>
+  <% if @water_source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@water_source.errors.count, "error") %> prohibited this water_source from being saved:</h2>
+
+      <ul>
+      <% @water_source.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :watershed %><br>
+    <%= f.text_field :watershed %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :standard_geographic_code %><br>
+    <%= f.text_field :standard_geographic_code %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

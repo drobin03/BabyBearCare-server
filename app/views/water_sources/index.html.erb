@@ -1,0 +1,37 @@
+<h1>Listing water_sources</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Watershed</th>
+      <th>Name</th>
+      <th>City</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Type</th>
+      <th>Standard geographic code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @water_sources.each do |water_source| %>
+      <tr>
+        <td><%= water_source.watershed %></td>
+        <td><%= water_source.name %></td>
+        <td><%= water_source.city %></td>
+        <td><%= water_source.latitude %></td>
+        <td><%= water_source.longitude %></td>
+        <td><%= water_source.type %></td>
+        <td><%= water_source.standard_geographic_code %></td>
+        <td><%= link_to 'Show', water_source %></td>
+        <td><%= link_to 'Edit', edit_water_source_path(water_source) %></td>
+        <td><%= link_to 'Destroy', water_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Water source', new_water_source_path %>
