@@ -27,12 +27,16 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @water_source.type %>
+  <%= @water_source.water_source_type %>
 </p>
 
 <p>
   <strong>Standard geographic code:</strong>
   <%= @water_source.standard_geographic_code %>
+</p>
+<p>
+  <strong>Treatment Chemicals Used</strong>
+  <%= @water_source.treatment_chemicals.map(&:name).join(" ") %>
 </p>
 
 <%= link_to 'Edit', edit_water_source_path(@water_source) %> |

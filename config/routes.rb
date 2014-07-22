@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :treatments
+
+  resources :treatment_chemicals
+
   resources :fluoride_scans
 
   resources :water_sources

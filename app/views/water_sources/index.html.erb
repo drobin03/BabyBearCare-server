@@ -10,6 +10,7 @@
       <th>Longitude</th>
       <th>Type</th>
       <th>Standard geographic code</th>
+      <th>Treatment Chemicals</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,8 +23,9 @@
         <td><%= water_source.city %></td>
         <td><%= water_source.latitude %></td>
         <td><%= water_source.longitude %></td>
-        <td><%= water_source.type %></td>
+        <td><%= water_source.water_source_type %></td>
         <td><%= water_source.standard_geographic_code %></td>
+        <td><%= water_source.treatment_chemicals.map(&:name).join(" ") %></td>
         <td><%= link_to 'Show', water_source %></td>
         <td><%= link_to 'Edit', edit_water_source_path(water_source) %></td>
         <td><%= link_to 'Destroy', water_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>

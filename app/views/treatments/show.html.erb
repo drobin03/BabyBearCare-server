@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Water source:</strong>
+  <%= @treatment.water_source %>
+</p>
+
+<p>
+  <strong>Treatment chemical:</strong>
+  <%= @treatment.treatment_chemical %>
+</p>
+
+<%= link_to 'Edit', edit_treatment_path(@treatment) %> |
+<%= link_to 'Back', treatments_path %>
