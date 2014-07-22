@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
   def show
     case params[:id]
     when 'check'
-      @locations = [{ id: "1", name: "Waterloo,ON" }, { id: "2", name: "Guelph,ON" }]
+      @locations = ["Waterloo", "Guelph"]
     end
   end
 end

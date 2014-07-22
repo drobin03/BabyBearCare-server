@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606143009) do
+ActiveRecord::Schema.define(version: 20140701134648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(version: 20140606143009) do
     t.string   "password_salt"
     t.string   "persistence_token"
     t.string   "postal_code"
+  end
+
+  create_table "water_sources", force: true do |t|
+    t.string   "watershed"
+    t.string   "name"
+    t.string   "city"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "type"
+    t.string   "standard_geographic_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

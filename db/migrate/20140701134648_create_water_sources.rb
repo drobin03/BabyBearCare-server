@@ -4,8 +4,8 @@ class CreateWaterSources < ActiveRecord::Migration
       t.string :watershed
       t.string :name
       t.string :city
-      t.double :latitude
-      t.double :longitude
+      t.decimal :latitude
+      t.decimal :longitude
       t.string :type
       t.string :standard_geographic_code
 
