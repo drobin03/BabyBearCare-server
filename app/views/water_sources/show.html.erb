@@ -14,17 +14,6 @@
   <strong>City:</strong>
   <%= @water_source.city %>
 </p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @water_source.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @water_source.longitude %>
-</p>
-
 <p>
   <strong>Type:</strong>
   <%= @water_source.water_source_type %>
@@ -36,7 +25,7 @@
 </p>
 <p>
   <strong>Treatment Chemicals Used</strong>
-  <%= @water_source.treatment_chemicals.map(&:name).join(" ") %>
+  <%= @water_source.treatment_chemicals.map(&:name).to_sentence %>
 </p>
 
 <%= link_to 'Edit', edit_water_source_path(@water_source) %> |

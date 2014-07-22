@@ -1,13 +1,11 @@
 <h1>Listing water_sources</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Watershed</th>
       <th>Name</th>
       <th>City</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
       <th>Type</th>
       <th>Standard geographic code</th>
       <th>Treatment Chemicals</th>
@@ -21,11 +19,9 @@
         <td><%= water_source.watershed %></td>
         <td><%= water_source.name %></td>
         <td><%= water_source.city %></td>
-        <td><%= water_source.latitude %></td>
-        <td><%= water_source.longitude %></td>
         <td><%= water_source.water_source_type %></td>
         <td><%= water_source.standard_geographic_code %></td>
-        <td><%= water_source.treatment_chemicals.map(&:name).join(" ") %></td>
+        <td><%= water_source.treatment_chemicals.map(&:name).to_sentence %></td>
         <td><%= link_to 'Show', water_source %></td>
         <td><%= link_to 'Edit', edit_water_source_path(water_source) %></td>
         <td><%= link_to 'Destroy', water_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>

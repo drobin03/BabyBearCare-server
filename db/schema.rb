@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722192854) do
+ActiveRecord::Schema.define(version: 20140722202502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,25 @@ ActiveRecord::Schema.define(version: 20140722192854) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "mineral_tests", force: true do |t|
+    t.integer  "water_source_id"
+    t.integer  "mineral_id"
+    t.datetime "test_date"
+    t.decimal  "measurement"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mineral_tests", ["mineral_id"], name: "index_mineral_tests_on_mineral_id", using: :btree
+  add_index "mineral_tests", ["water_source_id"], name: "index_mineral_tests_on_water_source_id", using: :btree
+
+  create_table "minerals", force: true do |t|
+    t.string   "name"
+    t.decimal  "max_dosage"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "treatment_chemicals", force: true do |t|
@@ -69,8 +88,6 @@ ActiveRecord::Schema.define(version: 20140722192854) do
     t.string   "watershed"
     t.string   "name"
     t.string   "city"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
     t.string   "water_source_type"
     t.string   "standard_geographic_code"
     t.datetime "created_at"

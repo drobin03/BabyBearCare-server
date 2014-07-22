@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Water source:</strong>
+  <%= @mineral_test.water_source %>
+</p>
+
+<p>
+  <strong>Mineral:</strong>
+  <%= @mineral_test.mineral %>
+</p>
+
+<p>
+  <strong>Test date:</strong>
+  <%= @mineral_test.test_date %>
+</p>
+
+<p>
+  <strong>Measurement:</strong>
+  <%= @mineral_test.measurement %>
+</p>
+
+<%= link_to 'Edit', edit_mineral_test_path(@mineral_test) %> |
+<%= link_to 'Back', mineral_tests_path %>

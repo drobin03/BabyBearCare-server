@@ -1,0 +1,27 @@
+<h1>Listing minerals</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Max dosage</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @minerals.each do |mineral| %>
+      <tr>
+        <td><%= mineral.name %></td>
+        <td><%= mineral.max_dosage %></td>
+        <td><%= link_to 'Show', mineral %></td>
+        <td><%= link_to 'Edit', edit_mineral_path(mineral) %></td>
+        <td><%= link_to 'Destroy', mineral, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mineral', new_mineral_path %>

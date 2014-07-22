@@ -1,0 +1,2 @@
+module MineralTestsHelper
+end

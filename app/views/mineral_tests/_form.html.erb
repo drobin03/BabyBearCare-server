@@ -1,0 +1,9 @@
+<%= semantic_form_for @mineral_test do |f| %>
+  <%= f.input :water_source, as: :select, collection: Hash[WaterSource.all.map{ |w| [w.name,w.id] }] %>
+  <%= f.input :mineral, as: :select, collection: Hash[Mineral.all.map{ |m| [m.name,m.id] }] %>
+  <%= f.input :test_date %>
+  <%= f.input :measurement %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

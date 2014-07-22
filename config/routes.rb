@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :mineral_tests
+
+  resources :minerals
+
   resources :treatments
 
   resources :treatment_chemicals
