@@ -16,7 +16,7 @@ class UserSessionsController < ApplicationController
     if @user_session.new_session?
       render :new
     else
-      redirect_to dashboard_index_url
+      redirect_to root_url
     end
   end
 

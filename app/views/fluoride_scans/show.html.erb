@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @fluoride_scan.location %>
+</p>
+
+<p>
+  <strong>Water type:</strong>
+  <%= @fluoride_scan.water_type %>
+</p>
+
+<p>
+  <strong>Bar code:</strong>
+  <%= @fluoride_scan.bar_code %>
+</p>
+
+<%= link_to 'Edit', edit_fluoride_scan_path(@fluoride_scan) %> |
+<%= link_to 'Back', fluoride_scans_path %>

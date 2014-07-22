@@ -6,7 +6,6 @@ class DashboardController < ApplicationController
   def show
     case params[:id]
     when 'check'
-      @locations = ["Waterloo", "Guelph"]
     end
   end
 end

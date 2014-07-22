@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701134648) do
+ActiveRecord::Schema.define(version: 20140722175856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fluoride_scans", force: true do |t|
+    t.integer  "location"
+    t.string   "water_type"
+    t.string   "bar_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "infants", force: true do |t|
     t.string   "first_name"
@@ -47,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140701134648) do
     t.string   "city"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.string   "type"
+    t.string   "water_source_type"
     t.string   "standard_geographic_code"
     t.datetime "created_at"
     t.datetime "updated_at"

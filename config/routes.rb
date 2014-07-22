@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :fluoride_scans
+
   resources :water_sources
 
   resources :infants
@@ -9,7 +11,6 @@ Rails.application.routes.draw do
 
   resources :dashboard
 
-  get 'home/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -74,5 +75,5 @@ Rails.application.routes.draw do
   get '/signup', :to => 'users#new', :as => 'signup'
   get '/login', :to => 'user_sessions#new', :as => 'login'
   get '/logout', :to => 'user_sessions#destroy', :as => 'logout'
-  root to: 'home#index'
+  root to: 'dashboard#index'
 end
