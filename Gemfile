@@ -5,6 +5,7 @@ gem 'pg'
 
 gem 'authlogic'
 gem 'bootstrap-sass'
+gem 'cancancan', '~> 1.9'
 gem 'formtastic', github: 'justinfrench/formtastic', branch: '2.3-stable'
 gem 'formtastic-bootstrap', github: 'mjbellantoni/formtastic-bootstrap'
 gem 'sass-rails', '~> 4.0.3'

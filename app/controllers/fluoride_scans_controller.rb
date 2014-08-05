@@ -4,7 +4,7 @@ class FluorideScansController < ApplicationController
   # GET /fluoride_scans
   # GET /fluoride_scans.json
   def index
-    @fluoride_scans = FluorideScan.all
+    @fluoride_scans = current_user.fluoride_scans
   end
 
   # GET /fluoride_scans/1
@@ -66,6 +66,6 @@ class FluorideScansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fluoride_scan_params
-      params.require(:fluoride_scan).permit(:location, :water_type, :bar_code)
+      params.require(:fluoride_scan).permit(:location, :water_type, :bar_code, :user_id)
     end
 end

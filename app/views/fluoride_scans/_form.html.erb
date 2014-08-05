@@ -1,5 +1,6 @@
 <%= semantic_form_for @fluoride_scan do |f| %>
   <%= f.input :location, as: :select, collection: Hash[WaterSource.all.map{ |w| [w.name,w.id] }] %>
+  <%= f.input :user_id, as: :hidden, value: current_user.id %>
   <%= f.actions do -%>
     <%= f.action :submit, label: "Run Scan", button_html: { class: "btn btn-primary" } %>
   <%- end -%>

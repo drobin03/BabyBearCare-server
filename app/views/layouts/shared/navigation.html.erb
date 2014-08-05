@@ -5,11 +5,14 @@
     </div>
     <ul class="nav navbar-nav">
       <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Treatment Chemicals", treatment_chemicals_path %></li>
-      <li><%= link_to "Treatments", treatments_path %></li>
-      <li><%= link_to "Water Sources", water_sources_path %></li>
-      <li><%= link_to "Minerals", minerals_path %></li>
-      <li><%= link_to "Mineral Tests", mineral_tests_path %></li>
+      <%- if logged_in? -%>
+        <li><%= link_to "User Roles", user_roles_path %></li>
+        <li><%= link_to "Treatment Chemicals", treatment_chemicals_path %></li>
+        <li><%= link_to "Treatments", treatments_path %></li>
+        <li><%= link_to "Water Sources", water_sources_path %></li>
+        <li><%= link_to "Minerals", minerals_path %></li>
+        <li><%= link_to "Mineral Tests", mineral_tests_path %></li>
+      <%- end -%>
       <li><%= link_to "Logout", logout_path if logged_in? %></li>
     </ul>
   </div>

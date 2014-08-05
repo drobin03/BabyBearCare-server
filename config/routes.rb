@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :user_roles
+
+  resources :roles
+
   resources :mineral_tests
 
   resources :minerals

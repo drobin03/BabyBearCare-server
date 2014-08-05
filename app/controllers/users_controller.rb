@@ -72,6 +72,7 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(
         :login, :email, :password, :password_confirmation, :postal_code,
-        infants_attributes: [ :user_id, :id, :first_name, :last_name, :weight, :gender, :date_of_birth, :due_date, :birth_weight, :multiple_birth, :_destroy ] )
+        infants_attributes: [ :user_id, :id, :first_name, :last_name, :weight, :gender, :date_of_birth, :due_date, :birth_weight, :multiple_birth, :_destroy ],
+        role_ids: [] )
     end
 end
