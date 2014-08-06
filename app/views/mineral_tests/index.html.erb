@@ -12,17 +12,7 @@
   </thead>
 
   <tbody>
-    <% @mineral_tests.each do |mineral_test| %>
-      <tr>
-        <td><%= mineral_test.water_source %></td>
-        <td><%= mineral_test.mineral %></td>
-        <td><%= mineral_test.test_date %></td>
-        <td><%= mineral_test.measurement %></td>
-        <td><%= link_to 'Show', mineral_test %></td>
-        <td><%= link_to 'Edit', edit_mineral_test_path(mineral_test) %></td>
-        <td><%= link_to 'Destroy', mineral_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <%= render "index" %>
   </tbody>
 </table>
 

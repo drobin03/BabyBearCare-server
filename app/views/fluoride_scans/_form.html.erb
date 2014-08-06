@@ -1,8 +1,28 @@
 <%= semantic_form_for @fluoride_scan do |f| %>
-  <%= f.input :location, as: :select, collection: Hash[WaterSource.all.map{ |w| [w.name,w.id] }] %>
   <%= f.input :user_id, as: :hidden, value: current_user.id %>
+  
+  <%= f.input :location, as: :select, collection: Hash[WaterSource.all.map{ |w| [w.name,w.id] }], input_html: { id: "location-selector" } %>
+  <table id="location-data" class="table">
+      <!-- This section is filled via javascript -->
+    </tbody>
+  </table>
+  
   <%= f.actions do -%>
     <%= f.action :submit, label: "Run Scan", button_html: { class: "btn btn-primary" } %>
   <%- end -%>
 <% end %>
 
+<% content_for :tail do %>
+  <script type="text/javascript">
+  $("#location-selector").change(function() {
+    var selected = $(this.children[this.selectedIndex]);
+    $.ajax({
+      url: "<%= mineral_tests_url %>",
+      data: { 
+        water_source_id: selected.val() 
+      },
+      dataType: "script"
+});
+  });
+  </script>
+<% end %>

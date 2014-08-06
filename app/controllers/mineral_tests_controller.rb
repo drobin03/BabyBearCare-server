@@ -1,10 +1,11 @@
 class MineralTestsController < ApplicationController
   before_action :set_mineral_test, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
 
   # GET /mineral_tests
   # GET /mineral_tests.json
   def index
-    @mineral_tests = MineralTest.all
+    @mineral_tests = MineralTest.water_source(params[:water_source_id])
   end
 
   # GET /mineral_tests/1
