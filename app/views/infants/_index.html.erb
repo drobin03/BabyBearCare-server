@@ -1,0 +1,10 @@
+<table class="table table-condensed">
+<% @infants.each do |infant| %>
+  <tr>
+    <td><%= infant.first_name %> <%= infant.last_name %></td>
+    <td><%= infant.weight %></td>
+    <td><%= link_to "Edit", edit_infant_path(infant), remote: true, class: "btn" %></td>
+    <td><%= link_to 'Delete', infant, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>  
+</table>

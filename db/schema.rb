@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805212437) do
+ActiveRecord::Schema.define(version: 20140807204944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "fluoride_scans", force: true do |t|
-    t.integer  "location"
     t.string   "water_type"
     t.string   "bar_code"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "infant_id"
+    t.integer  "water_source_id"
   end
 
   create_table "infants", force: true do |t|

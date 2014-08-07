@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @infant = @user.infants.build
+    @infants = @user.infants
   end
 
   # POST /users

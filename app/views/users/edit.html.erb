@@ -2,17 +2,18 @@
 
 <%= render 'form' %>
 
-<%- @user.infants.each do |infant| -%>
-  <%= render "infants/summary", infant: infant %>
-<%- end -%>
+<div class="infants">
+  <%= render "infants/index" %>
+</div>
 
-<%= link_to "Add Infant", new_infant_path, class: "btn btn-primary", data: { toggle: "modal", target: "#new-infant-modal"} %>
-<div id="new-infant-modal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <%= render "infants/new" %>
-    </div>
-  </div>
+<%= link_to "Add Infant", new_infant_path, remote: true, class: "btn btn-primary" %>
+<div id="new-infant"></div>
+
+<div id="infant-modal" class="modal fade">
+   <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
+   </div>
 </div>
 
 <%= link_to 'Show', @user %> |

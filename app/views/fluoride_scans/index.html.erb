@@ -12,17 +12,20 @@
   </thead>
 
   <tbody>
-    <tr><p>History should show up here</p></tr>
-    <% @fluoride_scans.each do |scan| %>
+    <% @infants.each do |infant| %>
     <tr>
-      <td><%= link_to scan.user.login, scan.user %></td>
-      <td><%= scan.location %></td>
-      <td><%= scan.water_type %></td>
-      <td><%= scan.bar_code %></td>
-      <td><%= link_to 'Show', scan %></td>
-      <td><%= link_to 'Edit', edit_fluoride_scan_path(scan) %></td>
-      <td><%= link_to 'Destroy', scan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <th colspan="8"><%= infant.first_name %></th>
     </tr>
+      <% infant.fluoride_scans.each do |scan| %>
+      <tr>
+        <td><%= scan.water_source.name %></td>
+        <td><%= scan.water_type %></td>
+        <td><%= scan.bar_code %></td>
+        <td><%= link_to 'Show', scan %></td>
+        <td><%= link_to 'Edit', edit_fluoride_scan_path(scan) %></td>
+        <td><%= link_to 'Destroy', scan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
