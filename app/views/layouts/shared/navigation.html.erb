@@ -22,8 +22,8 @@
         <%- if can? :read, Mineral -%>
           <li><%= link_to "Minerals", minerals_path %></li>
         <%- end -%>
-        <%- if can? :read, MineralTest -%>
-          <li><%= link_to "Mineral Tests", mineral_tests_path %></li>
+        <%- if can? :manage, MineralTest -%>
+          <li><%= link_to "Recent Mineral Tests", mineral_tests_path %></li>
         <%- end -%>
       <%- end -%>
       <li><%= link_to "Logout", logout_path if logged_in? %></li>
