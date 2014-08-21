@@ -1,12 +1,13 @@
-<h1>Listing fluoride_scans</h1>
+<h1>Listing All Recent Scans for <%= @current_user.login %></h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th>User</th>
+      <th>Infant</th>
       <th>Location</th>
       <th>Water type</th>
       <th>Bar code</th>
+      <th>Result</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +19,17 @@
     </tr>
       <% infant.fluoride_scans.each do |scan| %>
       <tr>
+        <td>&nbsp;</td>
         <td><%= scan.water_source.name %></td>
         <td><%= scan.water_type %></td>
         <td><%= scan.bar_code %></td>
+        <td>
+          <% unless scan.toxicity.nil? %>
+            <span class="label label-<%= scan.toxicity_level_class %>">
+              <%= scan.toxicity_level_class %>
+            </span>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', scan %></td>
         <td><%= link_to 'Edit', edit_fluoride_scan_path(scan) %></td>
         <td><%= link_to 'Destroy', scan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,4 +41,4 @@
 
 <br>
 
-<%= link_to 'New Fluoride scan', new_fluoride_scan_path %>
+<%= link_to 'New Scan', new_fluoride_scan_path, class: "btn btn-lg btn-default" %>

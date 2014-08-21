@@ -16,6 +16,19 @@ class InfantsController < ApplicationController
     end
   end
 
+  def edit
+    @infant = Infant.find(params[:id])
+  end
+
+  def update
+    @infant = Infant.find(params[:id])
+    if @infant.update(infant_params)
+      flash[:success] = "Infant updated successfully."
+    else
+      flash[:error] = "An error occurred while attempting to update the infant."
+    end
+  end
+
   def delete
     @infant = Infant.find(params[:infant_id])
   end
@@ -29,7 +42,7 @@ class InfantsController < ApplicationController
     def infant_params
       params.require(:infant).permit(
         :first_name, :last_name, :weight, :gender, :date_of_birth,
-        :due_date, :birth_weight, :multiple_birth, :user_id )
+        :due_date, :birth_weight, :multiple_birth, :user_id, :daily_intake )
     end
 
     def load_infants

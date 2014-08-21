@@ -8,4 +8,8 @@ class WaterSource < ActiveRecord::Base
   has_many :fluoride_scans
   
   validates_presence_of :watershed, :name, :city, :water_source_type, :standard_geographic_code
+
+  def latest_fluoride_test
+    mineral_tests.mineral("Fluoride").order(:test_date).first
+  end
 end

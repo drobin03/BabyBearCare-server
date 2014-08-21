@@ -8,10 +8,37 @@
   <%= @fluoride_scan.water_type %>
 </p>
 
-<p>
-  <strong>Bar code:</strong>
-  <%= @fluoride_scan.bar_code %>
-</p>
+<div class="row">
+  <div class="col-md-4">
+    <div id="toxicity" class="img-circle 
+      <% 
+      t = @fluoride_scan.toxicity 
+      case 
+      %>
+      <% when t > 0.07 %>
+        bg-danger
+        <% content_for :toxicity_msg do %>
+          <h2 class="text-danger">Toxic</h2>
+        <% end %>
+      <% when t < 0.05 %>
+        bg-success
+        <% content_for :toxicity_msg do %>
+          <h2>Safe</h2>
+        <% end %>
+      <% else %>
+        bg-warning
+        <% content_for :toxicity_msg do %>
+          <h2>Warning</h2>
+        <% end %>
+      <% end %>
+      ">
+      <div class="text-center">
+        <%= yield(:toxicity_msg) %>
+        <p><%= @fluoride_scan.toxicity unless @fluoride_scan.toxicity.nil? %></p>
+      </div>
+    </div>  
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_fluoride_scan_path(@fluoride_scan) %> |
 <%= link_to 'Back', fluoride_scans_path %>

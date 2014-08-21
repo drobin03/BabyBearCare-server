@@ -26,6 +26,8 @@ class FluorideScansController < ApplicationController
   # POST /fluoride_scans.json
   def create
     @fluoride_scan = FluorideScan.new(fluoride_scan_params)
+    @fluoride_scan.toxicity = @fluoride_scan.calc_toxicity
+
     if @fluoride_scan.save
       flash[:notice] = "Scan completed successfully"
       redirect_to @fluoride_scan
@@ -66,6 +68,6 @@ class FluorideScansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fluoride_scan_params
-      params.require(:fluoride_scan).permit(:water_source_id, :water_type, :bar_code, :infant_id)
+      params.require(:fluoride_scan).permit(:water_source_id, :water_type, :bar_code, :infant_id, :toxicity)
     end
 end

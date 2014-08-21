@@ -4,4 +4,7 @@ class Mineral < ActiveRecord::Base
 
   validates_presence_of :name, :max_dosage
 
+  def health_reference_val
+    0.05
+  end
 end

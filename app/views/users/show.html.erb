@@ -15,7 +15,20 @@
 
 
 <h2>Infants</h2>
-<%= render @user.infants %>
+<div class="infants">
+  <%= render @user.infants %>
+</div>
+
+<%= link_to "Add Infant", new_infant_path, remote: true, class: "btn btn-primary" %>
+<div id="new-infant"></div>
+
+<div id="infant-modal" class="modal fade">
+   <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
+   </div>
+</div>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
