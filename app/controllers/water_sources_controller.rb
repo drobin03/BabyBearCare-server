@@ -1,4 +1,5 @@
 class WaterSourcesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_water_source, only: [:show, :edit, :update, :destroy]
 
   # GET /water_sources

@@ -7,6 +7,7 @@ class InfantsController < ApplicationController
   end
 
   def create
+    debugger
     @infant = Infant.new(infant_params)
 
     if @infant.save

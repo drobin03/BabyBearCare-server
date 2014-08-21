@@ -6,10 +6,13 @@ class Ability
     if user.role?(:admin)
       can :manage, :all
     else
-      can :update, User do |user_getting_updated|
+      can :create, User
+      can [:update, :read], User do |user_getting_updated|
         user_getting_updated == user
       end
+
       can :manage, FluorideScan, user_id: user.id
+      can :read, MineralTest
     end
     # The first argument to `can` is the action you are giving the user
     # permission to do.

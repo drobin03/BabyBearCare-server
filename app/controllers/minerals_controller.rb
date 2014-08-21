@@ -1,4 +1,5 @@
 class MineralsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_mineral, only: [:show, :edit, :update, :destroy]
 
   # GET /minerals

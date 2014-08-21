@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Infant</th>
+      <th>Date</th>
       <th>Location</th>
       <th>Water type</th>
       <th>Bar code</th>
@@ -20,6 +21,7 @@
       <% infant.fluoride_scans.each do |scan| %>
       <tr>
         <td>&nbsp;</td>
+        <td><%= scan.created_at.strftime("%B %d, %Y") %></td>
         <td><%= scan.water_source.name %></td>
         <td><%= scan.water_type %></td>
         <td><%= scan.bar_code %></td>
