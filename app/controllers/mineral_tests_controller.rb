@@ -6,7 +6,11 @@ class MineralTestsController < ApplicationController
   # GET /mineral_tests
   # GET /mineral_tests.json
   def index
-    @mineral_tests = MineralTest.water_source(params[:water_source_id])
+    if params[:water_source_id].nil?
+      @water_sources = WaterSource.all
+    else  
+      @mineral_tests = MineralTest.water_source(params[:water_source_id])
+    end
   end
 
   # GET /mineral_tests/1

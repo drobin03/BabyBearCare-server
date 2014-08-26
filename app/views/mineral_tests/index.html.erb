@@ -3,16 +3,25 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Water source</th>
-      <th>Mineral</th>
       <th>Test date</th>
-      <th>Measurement</th>
+      <th>Mineral</th>
+      <th>Level (mg/L)</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
-    <%= render "index" %>
+    <% if @mineral_tests.nil? %>
+      <% @water_sources.each do |water_source| 
+        @mineral_tests = water_source.mineral_tests %>
+        <tr>
+          <%# Arbitrary colspan %>
+          <td colspan="10"><%= link_to water_source.name, water_source %></td>
+        </tr> 
+        <%= render "index" %>
+      <% end %>
+    <% else %>
+      <%= render "index" %>
+    <% end %>
   </tbody>
 </table>
 

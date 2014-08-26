@@ -4,7 +4,7 @@
   <%= f.input :water_source, as: :select, collection: Hash[WaterSource.all.map{ |w| [w.name,w.id] }], label: "Nearest Water Source", input_html: { id: "location-selector" } %>
   <table id="location-data" class="table">
       <!-- This section is filled via javascript -->
-    </tbody>
+  </tbody>
   </table>
   
   <%= f.actions do -%>

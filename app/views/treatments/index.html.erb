@@ -12,8 +12,8 @@
   <tbody>
     <% @treatments.each do |treatment| %>
       <tr>
-        <td><%= treatment.water_source %></td>
-        <td><%= treatment.treatment_chemical %></td>
+        <td><%= link_to treatment.water_source.name, treatment.water_source %></td>
+        <td><%= link_to treatment.treatment_chemical.name, treatment.treatment_chemical %></td>
         <td><%= link_to 'Show', treatment %></td>
         <td><%= link_to 'Edit', edit_treatment_path(treatment) %></td>
         <td><%= link_to 'Destroy', treatment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
