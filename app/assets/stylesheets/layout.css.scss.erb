@@ -1,0 +1,12 @@
+//= depend_on_asset "brushed.png"
+//= depend_on_asset "brushed_@2X.png"
+
+// Usage
+body { @include img-retina('<%= asset_path("brushed.png") %>', '<%= asset_path("brushed_@2X.png") %>', 100px, 100px); background-repeat: repeat; background-color: transparent;}
+body { padding-top: $navbar-height; }
+
+.center { text-align: center; }
+
+#main-container { padding-top: 2em; padding-bottom: 2em; }
+
+.jumbotron { background: white; }

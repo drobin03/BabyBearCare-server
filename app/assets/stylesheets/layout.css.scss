@@ -1,9 +1,0 @@
-// Usage
-body { @include img-retina("brushed.png", "brushed_@2X.png", 100px, 100px); background-repeat: repeat; background-color: transparent;}
-body { padding-top: $navbar-height; }
-
-.center { text-align: center; }
-
-#main-container { padding-top: 2em; padding-bottom: 2em; }
-
-.jumbotron { background: white; }
