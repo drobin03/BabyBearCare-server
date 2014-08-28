@@ -4,9 +4,19 @@
   <%= f.input :water_source, as: :select, collection: Hash[WaterSource.all.map{ |w| [w.name,w.id] }], label: "Nearest Water Source", input_html: { id: "location-selector" } %>
   <table id="location-data" class="table">
       <!-- This section is filled via javascript -->
-  </tbody>
   </table>
-  
+  <div id="home-treatment"=>
+    <%= f.input :home_treatment_type, as: :select, label: "Home Treatment", input_html: { id: "home-treatment-selector" }, collection: options_for_select(FluorideScan.home_treatments, "None") %>
+    <div id="brita-alert" class="alert alert-warning alert-block fade hidden" role="alert">
+      <strong>Warning!</strong> Using a Brita filtration system does not have any affect over the fluoridation concentration in your water.
+    </div>
+    <div id="reverse-osmosis-alert" class="alert alert-success alert-block fade hidden" role="alert">
+      <strong>Awesome!</strong> A Reverse Osmosis system will remove the fluoride from your water.
+    </div>
+    <div id="boiling-alert" class="alert alert-danger alert-block fade hidden" role="alert">
+      <strong>STOP</strong> Boiling actually INCREASES the concentration of fluoride in your water.
+    </div>
+  </div>
   <%= f.actions do -%>
     <p><%= f.action :submit, label: "Run Scan", button_html: { class: "btn btn-primary" } %></p>
   <%- end -%>
@@ -22,7 +32,15 @@
         water_source_id: selected.val() 
       },
       dataType: "script"
-});
+    });
+  });
+
+  $('#home-treatment-selector').change(function() {
+    var treatment = $(this).find("option:selected").val().toLowerCase().replace(" ","-");
+    console.log("Treatment " + treatment);
+    
+    $('#home-treatment').find('.alert').removeClass("in").addClass("hidden");
+    $('#' + treatment + "-alert").removeClass("hidden").addClass("in");
   });
   </script>
 <% end %>

@@ -2,7 +2,12 @@
   <h1>Welcome <%= current_user.login %></h1>
 <%- else -%>
 <div class="jumbotron center">
-  <h1>Welcome to Baby Bear Care</h1>
+  <h1>Hello! Welcome to Baby Bear Care</h1>
+  <div class="row">
+    <div class="col-md-12">
+     <%= link_to image_tag("bears-color.jpg"), root_path, class: "img-responsive center-block" %>
+    </div>
+  </div>
   <p>Log in to continue</p>
   <div class="row">
     <div class="col-md-5">

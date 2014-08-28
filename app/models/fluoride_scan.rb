@@ -25,4 +25,9 @@ class FluorideScan < ActiveRecord::Base
     end
   end
 
+  class << self
+    def home_treatments
+      [ "None", "Brita", "Reverse Osmosis", "Boiling" ]
+    end
+  end
 end

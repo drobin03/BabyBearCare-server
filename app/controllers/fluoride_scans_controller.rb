@@ -68,6 +68,6 @@ class FluorideScansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fluoride_scan_params
-      params.require(:fluoride_scan).permit(:water_source_id, :water_type, :bar_code, :infant_id, :toxicity)
+      params.require(:fluoride_scan).permit(:water_source_id, :water_type, :bar_code, :infant_id, :home_treatment_type, :toxicity)
     end
 end
