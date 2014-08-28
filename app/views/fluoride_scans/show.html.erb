@@ -34,7 +34,7 @@
       ">
       <div class="text-center">
         <%= yield(:toxicity_msg) %>
-        <p><%= @fluoride_scan.toxicity unless @fluoride_scan.toxicity.nil? %></p>
+        <p><%= @fluoride_scan.toxicity.round(2) unless @fluoride_scan.toxicity.nil? %></p>
       </div>
     </div>  
   </div>

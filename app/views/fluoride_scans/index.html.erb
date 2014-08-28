@@ -7,6 +7,7 @@
       <th>Date</th>
       <th>Location</th>
       <th>Water type</th>
+      <th>Home Treatment</th>
       <th>Bar code</th>
       <th>Result</th>
       <th colspan="3"></th>
@@ -24,6 +25,7 @@
         <td><%= scan.created_at.strftime("%B %d, %Y") %></td>
         <td><%= scan.water_source.name %></td>
         <td><%= scan.water_type %></td>
+        <td><%= scan.home_treatment_type %></td>
         <td><%= scan.bar_code %></td>
         <td>
           <% unless scan.toxicity.nil? %>
