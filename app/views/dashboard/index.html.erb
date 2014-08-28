@@ -1,9 +1,10 @@
 <%- if logged_in? -%>
 <div class="row">
   <div class="col-md-6">
-    <p class="button"><%= link_to "Start Fluoride Analysis", new_fluoride_scan_path, class: "btn btn-lg btn-default" %></p>
+    <%= image_tag("bear-transparent.png", class: "img-responsive") %>
   </div>
   <div class="col-md-6">
+    <p class="button"><%= link_to "Start Fluoride Analysis", new_fluoride_scan_path, class: "btn btn-lg btn-default" %></p>
     <p class="button"><%= link_to "History", fluoride_scans_path, class: "btn btn-lg btn-default" %></p>
   </div>
 </div>
