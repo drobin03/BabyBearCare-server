@@ -26,7 +26,7 @@
   }
 }
 
-.cloud-label { width:108px; height:84px; background:url("/assets/cloud-empty.png") no-repeat center; background-size:100%; margin:$grid-gutter-width/2 auto; padding:0; line-height:84px; font-size:22px; text-align:center; text-transform: uppercase; }
+.cloud-label { width:108px; height:84px; background:url("<%= asset_path("cloud-empty.png") %>") no-repeat center; background-size:100%; margin:$grid-gutter-width/2 auto; padding:0; line-height:84px; font-size:22px; text-align:center; text-transform: uppercase; }
 
 .btn-square { border-radius:0; }
 .btn-lg { padding-top:$grid-gutter-width/2; padding-bottom:$grid-gutter-width/2; }
@@ -36,7 +36,7 @@
 .bear-transparent { width: 237px; }
 
 footer {
-  background:url("/assets/cityscape.png") repeat-x top; padding-top:113px; position:fixed; bottom:0; width:100%;
+  background:url("<%= asset_path("cityscape.png") %>") repeat-x top; padding-top:113px; position:fixed; bottom:0; width:100%;
   #footer-content { background: $brand-primary; color: white; min-height:50px; }
 }
 
