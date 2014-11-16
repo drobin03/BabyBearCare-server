@@ -1,0 +1,28 @@
+<%- if logged_in? -%>
+<div class="row">
+  <div class="col-md-6">
+    <%= image_tag("bear-transparent.png", class: "img-responsive") %>
+  </div>
+  <div class="col-md-6">
+    <p class="button"><%= link_to "F-Check", new_fluoride_scan_path, class: "btn btn-lg btn-default" %></p>
+    <p class="button"><%= link_to "History", fluoride_scans_path, class: "btn btn-lg btn-default" %></p>
+  </div>
+</div>
+
+<%- else -%>
+
+<div class="row">
+  <h2>How safe is your drinking water?</h2>
+  <p>Baby Bear Care aims to raise awareness about the adverse effects of Fluoridation in our water system. More specifically, the danger to infants. </p>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-2 padded">
+    <%= link_to "TRY OUR FREE SCAN!", new_fluoride_scan_path, class: "btn btn-lg btn-primary btn-block btn-square" %>
+    <p class="cloud-label">Or</p>
+    <%= link_to "SIGN UP >>", signup_path, class: "btn btn-lg btn-primary btn-block btn-square" %>
+  </div>
+  <div class="col-md-4 col-md-offset-2 padded">
+    <%= image_tag "bear-transparent.png", class: "bear-transparent" %>
+  </div>
+</div>
+<%- end -%>

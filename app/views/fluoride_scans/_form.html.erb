@@ -1,7 +1,9 @@
 <%= semantic_form_for @fluoride_scan do |f| %>
-  <%= f.input :infant_id, as: :select, collection: Hash[current_user.infants.map{ |i| [i.first_name,i.id] }] %>
-  
-  <%= f.input :water_source, as: :select, collection: Hash[WaterSource.all.map{ |w| [w.name,w.id] }], label: "Nearest Water Source", input_html: { id: "location-selector" } %>
+
+  <%= f.input :infant_id, as: :radio, collection: current_user.infants %>
+  <% current_user.infants.each do |infant| %>
+  <% end %>
+  <%= f.input :water_source, id: "location-selector" %> 
   <table id="location-data" class="table">
       <!-- This section is filled via javascript -->
   </table>

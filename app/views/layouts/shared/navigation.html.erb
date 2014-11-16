@@ -1,32 +1,9 @@
-<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-  <div class="container">
-    <!-- <div class="navbar-header">
-      <%= link_to "B", root_path, class: "navbar-brand" %>
-    </div> -->
-    <ul class="nav navbar-nav">
-      <li><%= link_to "Home", root_path %></li>
-      <%- if logged_in? -%>
-        <li><%= link_to "My Account", edit_user_path(current_user) %></li>
-        <%- if can? :read, UserRole -%>
-          <li><%= link_to "User Roles", user_roles_path %></li>
-        <%- end -%>
-        <%- if can? :read, TreatmentChemical -%>
-          <li><%= link_to "Treatment Chemicals", treatment_chemicals_path %></li>
-        <%- end -%>
-        <%- if can? :read, Treatment -%>
-          <li><%= link_to "Treatments", treatments_path %></li>
-        <%- end -%>
-        <%- if can? :read, WaterSource -%>
-          <li><%= link_to "Water Sources", water_sources_path %></li>
-        <%- end -%>
-        <%- if can? :read, Mineral -%>
-          <li><%= link_to "Minerals", minerals_path %></li>
-        <%- end -%>
-        <%- if can? :manage, MineralTest -%>
-          <li><%= link_to "Recent Mineral Tests", mineral_tests_path %></li>
-        <%- end -%>
-      <%- end -%>
-      <li><%= link_to "Logout", logout_path if logged_in? %></li>
-    </ul>
-  </div>
+<nav>
+  <ul class="nav nav-tabs nav-center">
+    <li><%= link_to "Home", root_path %></li>
+    <%- if logged_in? -%>
+      <li><%= link_to "My Account", edit_user_path(current_user) %></li>
+    <%- end -%>
+    <li><%= link_to "Logout", logout_path if logged_in? %></li>
+  </ul>
 </nav>

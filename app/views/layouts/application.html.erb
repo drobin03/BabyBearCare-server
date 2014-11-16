@@ -1,11 +1,33 @@
 <%= render file: "layouts/shared/head" %>
-<%= render file: "layouts/shared/navigation" %>
-<%= render file: "layouts/shared/header" %>
-
-<div id="main-container" class="container">
-  <%= render file: "layouts/shared/flashes" %>
-	<%= yield %>
+<div id="header">
+  <div class="container">
+    <h1 id="title" class="center">Baby Bear Care</h1>
+  </div>
+  <div id="nav">
+    <div class="container center-block">
+      <%= render file: "layouts/shared/navigation" %>
+    </div>
+  </div>
+</div>
+<%= image_tag "cloud.png", class: "cloud", id: "cloud_1"%>
+<%= image_tag "cloud.png", class: "cloud", id: "cloud_2"%>
+<div id="main-content">
+  <div class="container">
+    <div class="inner-container"> 
+      <%= render file: "layouts/shared/flashes" %>
+      <%= yield %>
+    </div>
+  </div>
 </div>
 
-<%= render file: "layouts/shared/footer" %>
-<%= render file: "layouts/shared/tail" %>
+<footer>
+  <div id="footer-content"></div>
+</footer>
+
+<%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+<%= yield(:tail) %>
+
+</body>
+</html>

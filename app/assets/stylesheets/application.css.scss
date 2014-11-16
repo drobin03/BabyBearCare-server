@@ -1,14 +1,13 @@
 /*
  *= depend_on variables
- *= depend_on mixins
- *= depend_on home
+ *= depend_on style
  *= depend_on layout
  */
 
 @import "variables";
-@import "mixins";
 @import "bootstrap";
+
 @import "formtastic-bootstrap";
-@import "home";
+@import "style";
+@import "clouds";
 @import "layout";
-@import "fluoride_scans";

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
 
   has_many :infants
+  has_many :fluoride_scans, through: :infants
 
   has_many :user_roles
   has_many :roles, through: :user_roles

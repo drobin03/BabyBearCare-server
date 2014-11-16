@@ -1,1 +1,28 @@
-$brand-primary: #2980b9;
+$font-family-sans-serif: "Open Sans", sans-serif;
+
+$mustard: #eae5c7;
+$mustard-light: #f1ebdb;
+$brown: #251b11;
+
+$body-bg: $mustard;
+$brand-primary: #218090;
+
+// $headings-color: $brand-primary;
+// $border-radius-base: 0;
+// $border-radius-large: 0;
+// $border-radius-small: 0; 
+
+@mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
+  background-image: url("${file-1x}");
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url($file-2x);
+    background-size: $width-1x $height-1x;
+  }
+}

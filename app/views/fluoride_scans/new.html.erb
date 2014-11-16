@@ -1,12 +1,9 @@
-<%- if logged_in? -%>
-
 <div class="row">
   <div class="col-md-4">
     <%= image_tag("bear-transparent.png", class: "img-responsive") %>
   </div>
   <div class="col-md-8">
     <%= render 'form' %>
-    <p><%= link_to 'History', fluoride_scans_path, class: "btn btn-default" %></p>
+    <p><%= link_to 'History', fluoride_scans_path %></p>
   </div>
 </div>
-<%- end -%>

@@ -1,0 +1,46 @@
+.center { text-align: center; }
+
+.nav.nav-center { 
+  text-align:center;
+  > li { display:inline-block; float:none; }
+}
+
+
+#header { 
+  // #title {  font-size:50px; text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7); margin:20px 0; }
+  #title { color: $brand-primary; font-family: 'Londrina Sketch', cursive; font-size: 75px; }
+
+  // #nav { 
+  //   border: 1px solid $gray-lighter;
+  //   a { color: $gray; }
+  // }
+}
+
+#main-content { 
+  margin-bottom: $grid-gutter-width/2; position:relative; z-index:2;
+
+  > .container { 
+    background: $mustard-light;
+    box-shadow: 2px 2px 5px 0px $brown;
+    > .inner-container { background: transparent; border: 2px solid $brown; padding: 0px $grid-gutter-width; margin: $grid-gutter-width/2 0; }
+  }
+}
+
+.cloud-label { width:108px; height:84px; background:url("/assets/cloud-empty.png") no-repeat center; background-size:100%; margin:$grid-gutter-width/2 auto; padding:0; line-height:84px; font-size:22px; text-align:center; text-transform: uppercase; }
+
+.btn-square { border-radius:0; }
+.btn-lg { padding-top:$grid-gutter-width/2; padding-bottom:$grid-gutter-width/2; }
+
+.padded { padding-top:$grid-gutter-width/2; padding-bottom:$grid-gutter-width/2; }
+
+.bear-transparent { width: 237px; }
+
+footer {
+  background:url("/assets/cityscape.png") repeat-x top; padding-top:113px; position:fixed; bottom:0; width:100%;
+  #footer-content { background: $brand-primary; color: white; min-height:50px; }
+}
+
+
+@media (min-width: 1200px) {
+  .container { width: 970px; }
+}

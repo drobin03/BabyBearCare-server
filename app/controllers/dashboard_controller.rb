@@ -1,11 +1,6 @@
 class DashboardController < ApplicationController
-  def index
+  def home
     @users = User.all
-  end
-
-  def show
-    case params[:id]
-    when 'check'
-    end
+    @user_session = UserSession.new if @user_session.nil?
   end
 end
