@@ -2,6 +2,7 @@
  *= depend_on variables
  *= depend_on style
  *= depend_on layout
+ *= depend_on multi-step-form
  */
 
 @import "variables";
@@ -11,3 +12,4 @@
 @import "style";
 @import "clouds";
 @import "layout";
+@import "multi-step-form";

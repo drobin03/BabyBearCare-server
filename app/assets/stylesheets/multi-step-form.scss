@@ -1,0 +1,13 @@
+form.multi-step {
+  .steps {
+    height: 400px /* CHANGE LATER */;
+    position: relative;
+    overflow: hidden;
+
+    .step { 
+      position:absolute;
+      left: 100%;
+      &.current { transition: 0.5s; left: 0; }
+    }
+  }
+}
