@@ -1,9 +1,12 @@
 <%= semantic_form_for @fluoride_scan do |f| %>
 
-  <%= f.input :infant_id, as: :radio, collection: current_user.infants %>
-  <% current_user.infants.each do |infant| %>
+  <% if current_user %>
+    <%= f.input :infant_id, as: :radio, collection: current_user.infants %>
+    <% current_user.infants.each do |infant| %>
+    <% end %>
   <% end %>
-  <%= f.input :water_source, id: "location-selector" %> 
+
+  <%= f.input :water_source %> 
   <table id="location-data" class="table">
       <!-- This section is filled via javascript -->
   </table>
@@ -26,7 +29,7 @@
 
 <% content_for :tail do %>
   <script type="text/javascript">
-  $("#location-selector").change(function() {
+  $("#fluoride_scan_water_source_id").change(function() {
     var selected = $(this.children[this.selectedIndex]);
     $.ajax({
       url: "<%= mineral_tests_url %>",
