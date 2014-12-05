@@ -1,0 +1,23 @@
+<form class="form">
+  <div class="modal-body">
+    <ul class="errors"></ul>
+    <%= f.inputs do %>
+      <%= f.input :user_id, as: :hidden, value: current_user.id %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :gender, as: :select, collection: ["M","F","T"] %>
+      <%= f.input :weight, label: "Current Weight (kg)" %>
+      <%= f.input :date_of_birth %>
+      <%= f.input :due_date %>
+      <%= f.input :birth_weight, label: "Birth Weight (kg)" %>
+      <%= f.input :multiple_birth, as: :select, collection: ["S","T","M"] %>
+      <%= f.input :daily_intake, label: "Daily Water Intake (L)" %>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <%= f.actions do -%>
+      <%= f.action :submit, label: "Save", button_html: { class: "btn btn-primary" } %>
+    <%- end -%>
+  </div>
+<% end %>

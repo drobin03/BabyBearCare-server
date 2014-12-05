@@ -1,8 +1,11 @@
 <nav>
-  <ul class="nav nav-tabs nav-center">
-    <li><%= link_to "Home", root_path %></li>
+  <ul class="nav nav-tabs">
+    <li class="<%= active_path(root_path) %>"><%= link_to "Home", root_path %></li>
+    <li class="<%= active_path(new_fluoride_scan_path) %>"><%= link_to "Scan", new_fluoride_scan_path %></li>
+    <li class="<%= active_path(about_path) %>"><%= link_to "About Us", about_path %></li>
     <%- if logged_in? -%>
-      <li><%= link_to "My Account", edit_user_path(current_user) %></li>
+      <li class="<%= active_path(edit_user_path(current_user)) %>"><%= link_to "My Account", edit_user_path(current_user) %></li>
+      <li class="<%= active_path(fluoride_scans_path) %>"><%= link_to 'History', fluoride_scans_path %></li>
     <%- end -%>
     <li><%= link_to "Logout", logout_path if logged_in? %></li>
   </ul>

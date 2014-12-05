@@ -1,48 +1,84 @@
-<%= semantic_form_for @fluoride_scan, html: { class: "multi-step" } do |f| %>
-  <div class="steps">
-    <!-- Step 1 -->
-    <div class="step current">
-      <% if current_user %>
-        <%= f.input :infant_id, as: :radio, collection: current_user.infants %>
-        <% current_user.infants.each do |infant| %>
-        <% end %>
-      <% end %>
+<%= content_for :tab_area do %>
+  <div id="form-nav">
+    <ul class="nav nav-pills multi-step-nav" data-target="scan_form">
+      <li class="active"><a href="#" onclick="goToStep(this, 0);">About your Infant</a></li>
+      <li><a href="#" onclick="goToStep(this, 1);">About your Water</a></li>
+      <li><a href="#" onclick="goToStep(this, 2);">Treatment Options</a></li>
+      <li><a href="#" onclick="goToStep(this, 3);">Results</a></li>
+    </ul>
+  </div>
+<% end %>
+<%= semantic_form_for @fluoride_scan, html: { class: "multi-step", id: "scan_form" }, remote: true do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag("bear-transparent.png", class: "img-responsive") %>
     </div>
+    <div class="col-md-8">
+      <div class="steps">
+        <!-- Step 1 -->
+        <div class="step current">
+          <% if current_user %>
+            <p>Choose the infant you would like to run the scan for:</p>
+            <%= f.input :infant_id, as: :radio, collection: current_user.infants %>
+          <% else %>
+            <%= f.input :infant_id, as: :hidden, value: -1 %>
+            <h2>First off..</h2>
+            <p>We need a little information about your infant</p>
+            <%= f.inputs do %>
+              <div class="form-group">
+                <label for="infant_dob">When were they born?</label>
+                <input id="infant_dob" />
+              </div>
+              <div class="form-group">
+                <label>How much do they weigh?</label>
+                <input id="infant_weight"/>  
+              </div>
+              <div class="form-group">
+                <label for="infant_daily_intake">Approximately how much water do they drink in a day?</label>
+                <input id="infant_daily_intake"/>  
+              </div>
+            <% end %>
+          <% end %>
+        </div>
 
-    <!-- Step 2 -->
-    <div class="step">
-      <%= f.input :water_source %> 
-      <table id="location-data" class="table">
-          <!-- This section is filled via javascript -->
-      </table>
-    </div>
-    
-    <!-- Step 3 -->
-    <div class="step">
-      <div id="home-treatment">
-        <%= f.input :home_treatment_type, as: :select, label: "Home Treatment", input_html: { id: "home-treatment-selector" }, collection: options_for_select(FluorideScan.home_treatments, "None") %>
-        <div id="brita-alert" class="alert alert-warning alert-block fade hidden" role="alert">
-          <strong>Warning!</strong> Using a Brita filtration system does not have any affect over the fluoridation concentration in your water.
+        <!-- Step 2 -->
+        <div class="step">
+          <%= f.input :water_source %> 
+          <table id="location-data" class="table">
+              <!-- This section is filled via javascript -->
+          </table>
         </div>
-        <div id="reverse-osmosis-alert" class="alert alert-success alert-block fade hidden" role="alert">
-          <strong>Awesome!</strong> A Reverse Osmosis system will remove the fluoride from your water.
-        </div>
-        <div id="boiling-alert" class="alert alert-danger alert-block fade hidden" role="alert">
-          <strong>STOP</strong> Boiling actually INCREASES the concentration of fluoride in your water.
+        
+        <!-- Step 3 -->
+        <div class="step">
+          <div id="home-treatment">
+            <%= f.input :home_treatment_type, as: :select, label: "Home Treatment", input_html: { id: "home-treatment-selector" }, collection: options_for_select(FluorideScan.home_treatments, "None") %>
+            <div id="brita-alert" class="alert alert-warning alert-block fade hidden" role="alert">
+              <strong>Warning!</strong> Using a Brita filtration system does not have any affect over the fluoridation concentration in your water.
+            </div>
+            <div id="reverse-osmosis-alert" class="alert alert-success alert-block fade hidden" role="alert">
+              <strong>Awesome!</strong> A Reverse Osmosis system will remove the fluoride from your water.
+            </div>
+            <div id="boiling-alert" class="alert alert-danger alert-block fade hidden" role="alert">
+              <strong>STOP</strong> Boiling actually INCREASES the concentration of fluoride in your water.
+            </div>
+          </div>
+          <%= f.actions do -%>
+            <p><%= f.action :submit, label: "Run Scan", button_html: { class: "btn btn-primary" } %></p>
+          <%- end -%>
         </div>
       </div>
-      <%= f.actions do -%>
-        <p><%= f.action :submit, label: "Run Scan", button_html: { class: "btn btn-primary" } %></p>
-      <%- end -%>
     </div>
   </div>
-  <div class="multi-step-nav">
-    <a href="#" class="prev-step btn btn-md btn-success btn-square">Previous</a>
-    <a href="#" class="next-step btn btn-md btn-success btn-square">Next</a>
+  <div id="next-previous" class="row">
+    <div class="center">
+      <div class="multi-step-nav">
+        <a href="#" class="prev-step btn btn-md btn-primary btn-square">Previous</a>
+        <a href="#" class="next-step btn btn-md btn-primary btn-square">Next</a>
+      </div>
+    </div>
   </div>
-
 <% end %>
-
 <% content_for :tail do %>
   <script type="text/javascript">
   $("#fluoride_scan_water_source_id").change(function() {

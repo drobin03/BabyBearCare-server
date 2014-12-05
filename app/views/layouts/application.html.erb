@@ -5,7 +5,7 @@
   </div>
   <div id="nav">
     <div class="container center-block">
-      <%= render file: "layouts/shared/navigation" %>
+      
     </div>
   </div>
 </div>
@@ -13,9 +13,13 @@
 <%= image_tag "cloud.png", class: "cloud", id: "cloud_2"%>
 <div id="main-content">
   <div class="container">
-    <div class="inner-container"> 
-      <%= render file: "layouts/shared/flashes" %>
-      <%= yield %>
+    <%= render file: "layouts/shared/navigation" %>
+    <div class="inner-container">
+      <div class="inner-inner-container"> 
+        <%= yield :tab_area %>
+        <%= render file: "layouts/shared/flashes" %>
+        <%= yield %>
+      </div>
     </div>
   </div>
 </div>

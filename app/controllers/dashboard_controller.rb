@@ -3,4 +3,6 @@ class DashboardController < ApplicationController
     @users = User.all
     @user_session = UserSession.new if @user_session.nil?
   end
+  def about
+  end
 end

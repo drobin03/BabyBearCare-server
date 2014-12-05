@@ -19,15 +19,33 @@
 #main-content { 
   margin-bottom: $grid-gutter-width/2; position:relative; z-index:2;
 
-  > .container { 
-    background: $mustard-light;
-    box-shadow: 2px 2px 5px 0px $brown;
+  .container{
     > .inner-container { 
-      background: transparent; border: 2px solid $brown; padding: 0px $grid-gutter-width/2; margin: $grid-gutter-width/2 0;
-      form { margin: $grid-gutter-width/2 0; }
+      background: $mustard-light;
+      box-shadow: 2px 2px 5px 0px $brown;
+      padding: $grid-gutter-width/2;
+      > .inner-inner-container { 
+        min-height: 300px;
+        background: transparent; border: 2px solid $brown; padding: 0px $grid-gutter-width/2; margin: 0;
+        form { margin: $grid-gutter-width/2 0; }
+      }
+    
     }
   }
 }
+
+#form-nav { 
+  @extend .center; margin: $grid-gutter-width/2 0;
+  ul.nav {
+    display:inline-block;
+    li { 
+      margin: 0 $grid-gutter-width/2;
+      a { border: 2px solid; }
+    }
+  }
+}
+
+#next-previous { margin: $grid-gutter-width/2 0; }
 
 .cloud-label { width:108px; height:84px; background:url("<%= asset_path("cloud-empty.png") %>") no-repeat center; background-size:100%; margin:$grid-gutter-width/2 auto; padding:0; line-height:84px; font-size:22px; text-align:center; text-transform: uppercase; }
 
