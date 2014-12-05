@@ -88,4 +88,6 @@ Rails.application.routes.draw do
   get '/login', :to => 'user_sessions#new', :as => 'login'
   get '/logout', :to => 'user_sessions#destroy', :as => 'logout'
   root to: 'dashboard#home'
+
+  get '/about', to: 'dashboard#about'
 end
